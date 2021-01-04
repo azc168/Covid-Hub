@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <title>Covid Hub</title>
+    <script
+      src="https://kit.fontawesome.com/79c931bf25.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="nav-brand">
+          <a href="index.html">
+            <img src="images/logo.png" alt="Covid Hub" />
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="nav-list">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="discussion.html">Discussion</a></li>
+        <li><a href="graph.html">Graph</a></li>
+      </ul>
+      <h2>Welcome to Covid Hub.</h2>
+      <h3>~ a home for all things covid ~</h3>
+    </div>
+    <div class="popup" id="popup-1">
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="close-btn" onclick="togglePopup()">&times;</div>
+        <!--<h1>How To Use This Website</h1>-->
+        <p>
+          Hello there! Our website revolves around two features: a discussion
+          board and a graph. In the discussion board, anyone can make a post,
+          such as how they are feeling after getting COVID-19, or what symptoms
+          they had. Doctors may also give advice which you can follow. The graph
+          displays the population of people with COVID-19 at the particular
+          location. However, we suggest you start on our about page and read up
+          on our mission statement!
+        </p>
+      </div>
+    </div>
+
+    <button onclick="togglePopup()">Confused? Click Me!</button>
+  </body>
+</html>
