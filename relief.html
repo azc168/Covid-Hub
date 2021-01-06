@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="form.css" />
+    <title>Covid Hub</title>
+    <script
+      src="https://kit.fontawesome.com/79c931bf25.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <script src="main.js"></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="nav-brand">
+          <a href="index.html">
+            <img src="images/logo.PNG" alt="Covid Hub" />
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="nav-list">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="discussion.html">Discussion</a></li>
+        <li><a href="graph.html">Map</a></li>
+        <li><a class="current" href="relief.html">Relief Form</a></li>
+        <li><a href="information.html">Useful Links</a></li>
+      </ul>
+    </div>
+    <!--pasting here-->
+    <div class="container">
+      <h1 class="brand"><span>Covid</span> Relief Form</h1>
+      <div class="wrapper">
+        <div class="company-info">
+          <h3>Covid Relief Form</h3>
+          <ul>
+            <li><i class="fa fa-road"></i> 101 Something Street</li>
+            <li><i class="fa fa-phone"></i> (111) 111-111</li>
+            <li><i class="fa fa-envelope"></i> something@gmail.com</li>
+          </ul>
+        </div>
+        <div class="contact">
+          <h3>Email Us</h3>
+          <div class="alert">Your message has been sent</div>
+          <form id="contactForm">
+            <p>
+              <label>Name</label>
+              <input type="text" name="name" id="name" required />
+            </p>
+            <p>
+              <label>Email</label>
+              <input type="email" name="email" id="email" required />
+            </p>
+            <p>
+              <label>Phone Number</label>
+              <input type="text" name="phone" id="phone" />
+            </p>
+            <p class="full">
+              <label>Message</label>
+              <textarea name="message" rows="5" id="message"></textarea>
+            </p>
+            <p class="full">
+              <button type="submit">Submit</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+    <script src="form.js"></script>
+  </body>
+</html>
