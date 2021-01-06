@@ -228,51 +228,127 @@ button {
 }
 /*About*/
 .about-description {
-  text-align: center;
+  /*text-align: center;
   max-width: 50%;
-  margin-left: 25%;
-  color: black;
-  font-family: "open sans";
+  margin-left: 25%;*/
+  width: 1000px;
+  height: 200px;
+  margin: 100px auto;
+  position: relative;
+  background: white;
+  margin-top: 2rem;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+  border-radius: 45px;
 }
+
+.about-description p {
+  /*max-width: 50%;
+  margin-left: 25%;*/
+  color: grey;
+  margin: 1rem;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  top: 15%;
+}
+
+.service-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  color: #00ebc4;
+}
+
+.tier-item {
+  height: 15rem;
+  padding: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+  text-align: center;
+}
+
+.tier-item i {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.tier-item h2 {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  text-align: center;
+  color: #00ebc4;
+  font-family: "Roboto";
+}
+
 .covid-long {
   height: 20rem;
   width: auto;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: -1rem;
   margin-bottom: -5rem;
 }
 
 /* Map */
 .map-display {
   text-align: center;
+  margin-bottom: 5rem;
 }
 /*Useful Links*/
 .link-description {
-  text-align: center;
   max-width: 50%;
+  height: auto;
+  background: white;
   margin-left: 25%;
-  color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+  margin-bottom: 5rem;
+  /*border-radius: 20px;*/
 }
 
-.links li {
+.link-description p {
+  color: grey;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.links {
+  max-width: 450px;
+  height: auto;
+  background: white;
+  margin-top: 5rem;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+  border-radius: 20px;
+  margin-bottom: 5rem;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%);
+  margin-top: -17rem;
+}
+
+.links p {
   text-align: center;
   font-size: 1.3rem;
-  margin-top: 2%;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
-/* footer */
-/*footer p {
-  font-size: 1.1rem;
+.links a:hover {
+  color: #000;
 }
 
-.footer-coded-by {
-  position: absolute;
-  text-align: center;
-  bottom: 0px;
-  width: 100%;
-  color: black;
+.molecule {
+  width: auto;
+  height: 17rem;
+  margin-left: 45%;
 }
-
-.footer-coded-by {
-  margin: 1rem 0;
-}*/

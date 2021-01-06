@@ -1,50 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style type="text/css">
-            html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
-        </style>  
-        <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=<YourOwnApiKey>">
-        </script>
-        <script type="text/javascript">
-            function initialize() {
-                var mapOptions = {
-                    center: { lat: 40.7306, lng: 34.4710},
-                    zoom: 3
-                };
-   
-                var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  <head>
+    <style type="text/css">
+      html,
+      body,
+      #map-canvas {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHfZE8dqztBxUPB8tfoqMBdzM2-qGQC6E"
+    ></script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: 40.7306, lng: 34.471 },
+          zoom: 3,
+        };
 
+        var map = new google.maps.Map(
+          document.getElementById("map-canvas"),
+          mapOptions
+        );
 
-                // GETCOUNTRY DATA START
-                //var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-                var xhr = new XMLHttpRequest(); // object used to interact with servers
-                var url = "https://www.trackcorona.live/api/countries"
-                xhr.open("GET", url, false); // initializes a request
-                xhr.send(null); // sends the request 
-                var countryJson = JSON.parse(xhr.responseText); // Has json data
-                // GETCOUNTRY DATA END
+        // GETCOUNTRY DATA START
+        //var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+        var xhr = new XMLHttpRequest(); // object used to interact with servers
+        var url = "https://www.trackcorona.live/api/countries";
+        xhr.open("GET", url, false); // initializes a request
+        xhr.send(null); // sends the request
+        var countryJson = JSON.parse(xhr.responseText); // Has json data
+        // GETCOUNTRY DATA END
 
-                for (var i = 0; i < countryJson.data.length; i++ ) {
-                    var country = countryJson.data[i]
-                    var marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(country.latitude, country.longitude),
-                        title: country.location,
-                        customInfo: "Selected Country: " + country.location + "\nConfirmed: " + country.confirmed
-                           + "\nDead: " + country.dead + "\nRecovered: " + country.recovered 
-                           + "\nUpdated: " + country.updated
-                     });
-                    marker.setMap(map);
-                    google.maps.event.addListener(marker, 'click', function() {
-                        alert(this.customInfo);
-                    });
-                }
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
-    </head>
-    <body>
-        <div id="map-canvas"></div>
-    </body>
+        for (var i = 0; i < countryJson.data.length; i++) {
+          var country = countryJson.data[i];
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(
+              country.latitude,
+              country.longitude
+            ),
+            title: country.location,
+            customInfo:
+              "Selected Country: " +
+              country.location +
+              "\nConfirmed: " +
+              country.confirmed +
+              "\nDead: " +
+              country.dead +
+              "\nRecovered: " +
+              country.recovered +
+              "\nUpdated: " +
+              country.updated,
+          });
+          marker.setMap(map);
+          google.maps.event.addListener(marker, "click", function () {
+            alert(this.customInfo);
+          });
+        }
+      }
+      google.maps.event.addDomListener(window, "load", initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
 </html>
