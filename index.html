@@ -11,23 +11,34 @@
     ></script>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <script src="main.js"></script>
+    <!--chatbox-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="jquery.convform.css"
+    />
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="jquery.convform.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
   </head>
   <body>
     <div class="container">
       <nav>
         <div class="nav-brand">
           <a href="index.html">
-            <img src="images/logo.png" alt="Covid Hub" />
+            <img src="images/logo.PNG" alt="Covid Hub" />
           </a>
         </div>
       </nav>
     </div>
     <div class="nav-list">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a class = "current" href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="discussion.html">Discussion</a></li>
-        <li><a href="graph.html">Graph</a></li>
+        <li><a href="graph.html">Map</a></li>
+        <li><a href="information.html">Useful Links</a></li>
       </ul>
       <h2>Welcome to Covid Hub.</h2>
       <h3>~ a home for all things covid ~</h3>
@@ -38,17 +49,170 @@
         <div class="close-btn" onclick="togglePopup()">&times;</div>
         <!--<h1>How To Use This Website</h1>-->
         <p>
-          Hello there! Our website revolves around two features: a discussion
-          board and a graph. In the discussion board, anyone can make a post,
+          Hello! To see if you are staying safe, chat with our bot on the bottom right corner! Click the discussion tab to view our discussion board. In the discussion board, anyone can make a post,
           such as how they are feeling after getting COVID-19, or what symptoms
-          they had. Doctors may also give advice which you can follow. The graph
-          displays the population of people with COVID-19 at the particular
-          location. However, we suggest you start on our about page and read up
-          on our mission statement!
+          they had. Doctors may also give advice which you can follow. The Map tab contains an interactive map with the population of infected people's.
         </p>
       </div>
     </div>
 
     <button onclick="togglePopup()">Confused? Click Me!</button>
+
+    <!--chatbox-->
+    <div class="chat-icon">
+      <i class="fa fa-comments" aria-hidden="true"></i>
+    </div>
+    <div class="chat-box">
+      <div class="conv-form-wrapper">
+        <form action="" method="GET" class="hidden">
+          <select
+            name="hotline"
+            data-conv-question="Hello! Are you aware of the CDC Covid-19 Hotline?"
+          >
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <div data-conv-fork="hotline">
+            <div data-conv-case="yes">
+              <select
+                name="mask"
+                data-conv-question="That's great to hear! Do you wear a mask when you go out?"
+              >
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <div data-conv-fork="mask">
+                <div data-conv-case="yes">
+                  <select
+                    name="social distance"
+                    data-conv-question="Awesome - keep up the good work! Do you make sure to social distance when hanging out with friends and stay in groups under 10?"
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                  <div data-conv-fork="social distance">
+                    <div data-conv-case="yes">
+                        <select name="wash hands" data-conv-question="Great job! We know that can be a bit hard. Are you constantly washing and sanitizing your hands?">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <div data-conv-fork="wash hands">
+                            <div data-conv-case="yes">
+                                <select name="finish" data-conv-question="Wow! You are doing a great job! Keep on staying safe!">
+                                </select>
+                            </div>
+                            <div data-conv-case="no">
+                                <select name="finish" data-conv-question="You can do better than that. Doctors recommend washing your hands before, during, and after preparing food. However, we also recommend to hand sanitize often!">
+                                    <option value="yes">Okay, will do!</option>
+                                </select>
+                                <div data-conv-fork="finish">
+                                    <div data-conv-case="yes">
+                                            <select name="finish" data-conv-question="I hope you learned some information today. Stay safe out there!">
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-conv-case="no">
+                        <select name="social distance-no" data-conv-question="We know its hard, but try you best to social distance and keep your circle small. Just remember, if one person in the group gets it, all of you will probaly get it.">
+                            <option value="yes">I Understand.</option>
+                        </select>
+                    </div>
+                    <div data-conv-fork="social distance-no">
+                        <div data-conv-case="yes">
+                            <select name="wash hands" data-conv-question="Do you constantly wash and sanitize your hands?">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div data-conv-case="no">
+                  <select
+                    name="no-mask"
+                    data-conv-question="I hate to break it to you, but wearing a mask is very important! While it may not protect you 100%, it still limits the spread of disease and greatly decreases the risk of you catching covid."
+                  >
+                    <option value="yes">I Understand.</option>
+                  </select>
+                </div>
+                <div data-conv-fork="no-mask">
+                    <div data-conv-case="yes">
+                        <select name="wash hands" data-conv-question="Do you constantly wash and sanitize your hands?">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-conv-case="no">
+              <select name="hotline-no" data-conv-question="It is: 1-800-232-4636">
+                <option value="yes">Thanks! I'll make a note.</option>
+              </select>
+              <div data-conv-fork="hotline-no">
+                <div data-conv-case="yes">
+                  <select
+                    name="mask"
+                    data-conv-question="When you go out, do you wear a mask?"
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                  <div data-conv-fork="mask">
+                    <div data-conv-case="yes">
+                      <select
+                        name="social distance"
+                        data-conv-question="Awesome - keep up the good work! Do you make sure to social distance when hanging out with friends and stay in groups under 10?"
+                      >
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                      <div data-conv-fork="social distance">
+                        <div data-conv-case="yes">
+                            <select name="wash hands" data-conv-question="Great job! We know that can be a bit hard. Are you constantly washing and sanitizing your hands?">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <div data-conv-fork="wash hands">
+                                <div data-conv-case="yes">
+                                    <select name="finish" data-conv-question="Wow! You are doing a great job! Keep on staying safe!">
+                                    </select>
+                                </div>
+                                <div data-conv-case="no">
+                                    <select name="finish" data-conv-question="You can do better than that. Doctors recommend washing your hands before, during, and after preparing food. However, we also recommend to hand sanitize often!">
+                                        <option value="yes">Okay, will do!</option>
+                                    </select>
+                                    <div data-conv-fork="finish">
+                                        <div data-conv-case="yes">
+                                                <select name="finish" data-conv-question="I hope you learned some information today. Stay safe out there!">
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-conv-case="no">
+                      <select
+                        name="mask"
+                        data-conv-question="I hate to break it to you, but wearing a mask is very important! While it may not protect you 100%, it still limits the spread of disease and greatly decreases the risk of you catching covid."
+                      >
+                        <option value="yes">I Understand.</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--<footer>
+      <div class="footer-coded-by">
+        <p>Copyright 2021 &copy; Covid Hub</p>
+      </div>
+    </footer>-->
   </body>
 </html>
