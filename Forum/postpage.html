@@ -1,0 +1,143 @@
+<body>
+  <div class="top-bar">
+    <h1></h1>
+  </div>
+  <a href="/Forum/discussionpage.html">
+    <button>Go Back</button>
+  </a>
+  <div class="main">
+    <div class="header"></div>
+    <textarea></textarea>
+    <button>add comment</button>
+
+    <div class="comments"></div>
+  </div>
+  <script src="commentcode.js"></script>
+
+  <script>
+    var id = window.location.search.slice(1);
+    var thread = threads.find((t) => t.id == id);
+    var header = document.querySelector(".header");
+    var headerHtml = `
+            <h4 class="title">
+                ${thread.title}
+            </h4>
+            <div class="bottom">
+                <p class="timestamp">
+                    ${new Date(thread.date).toLocaleString()}
+                </p>
+                <p class="comment-count">
+                    ${thread.comments.length} comments
+                </p>
+            </div>
+        `;
+    header.insertAdjacentHTML("beforeend", headerHtml);
+
+    function addComment(comment) {
+      var commentHtml = `
+                <div class="comment">
+                    <div class="top-comment">
+                        <p class="user">
+                            ${comment.author}
+                        </p>
+                        <p class="comment-ts">
+                            ${new Date(comment.date).toLocaleString()}
+                        </p>
+                    </div>
+                    <div class="comment-content">
+                        ${comment.content}
+                    </div>
+                </div>
+            `;
+      comments.insertAdjacentHTML("beforeend", commentHtml);
+    }
+
+    var comments = document.querySelector(".comments");
+    for (let comment of thread.comments) {
+      addComment(comment);
+    }
+
+    var btn = document.querySelector("button");
+    btn.addEventListener("click", function () {
+      var txt = document.querySelector("textarea");
+      var comment = {
+        content: txt.value,
+        date: Date.now(),
+        author: "",
+      };
+      addComment(comment);
+      txt.value = "";
+      thread.comments.push(comment);
+      localStorage.setItem("threads", JSON.stringify(threads));
+    });
+  </script>
+  <style>
+    body {
+      margin: 10px 60px;
+      background: rgb(255, 255, 153);
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    h1,
+    h4,
+    o1 {
+      font-family: "Merriweather", monospace;
+      margin: 0;
+    }
+    p {
+      margin: 5px 0;
+    }
+    textarea {
+      width: 80%;
+      height: 80px;
+    }
+    button {
+      font-family: "Merriweather", monospace;
+      color: black;
+      background: lightgray;
+      border-style: groove;
+      border-color: black;
+      display: block;
+      margin: 10px 0;
+      border-radius: 20px;
+    }
+    textarea {
+      font-family: "Merriweather", monospace;
+      color: black;
+      background: white;
+      border-style: groove;
+      border-color: black;
+      display: block;
+    }
+    .top-bar {
+      font-family: "Merriweather", monospace;
+      padding: 0 40px;
+    }
+    .main {
+      padding: 10px 40x;
+    }
+    .comments {
+      font-family: "Merriweather", monospace;
+      margin: 40px 0;
+    }
+    .comment {
+      font-family: "Merriweather", monospace;
+      margin: 20px 0;
+    }
+    .row {
+      padding: 5px 0;
+    }
+    .bottom,
+    .top-comennt {
+      font-family: "Merriweather", monospace;
+      display: flex;
+      color: black;
+      font-size: 12px;
+    }
+    .timestamp {
+      padding-right: 10px;
+    }
+  </style>
+</body>

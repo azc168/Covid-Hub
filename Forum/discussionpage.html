@@ -1,0 +1,160 @@
+<body>
+  <div class="top-bar">
+    <h1>Forum</h1>
+  </div>
+  <div class="main">
+    <ol></ol>
+  </div>
+  <div class="top-bar">
+    <h1>Add new Discussion Post</h1>
+  </div>
+  <textarea></textarea>
+  <button>Submit</button>
+  <!-- <button onclick="window.location.href='/discussionpost.html?$';">
+    Join discussion
+  </button> -->
+  <!-- <button>add comment</button> -->
+
+  <script src="commentcode.js"></script>
+
+  <script>
+    console.log(threads);
+    var container = document.querySelector("ol");
+
+    function addThread(threads) {
+      for (let thread of threads) {
+        var html = `
+                <li class="row">
+                    <a href="/Forum/postpage.html?${thread.id}">
+                        <h4 class="title">
+                            ${thread.title}
+                        </h4>
+                        <div class="bottom">
+                            <p class="timestamp">
+                                ${new Date(thread.date).toLocaleString()}
+                            </p>
+                            <p class="comment-count">
+                                ${thread.comments.length} comments
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                `;
+        container.insertAdjacentHTML("beforeend", html);
+      }
+    }
+
+    for (let thread of threads) {
+      var defaultThreads = [
+        {
+          id: thread.id,
+          title: thread.title,
+          author: "",
+          date: thread.date,
+          content: "Thread content",
+          comments: thread.comments,
+        },
+      ];
+      addThread(defaultThreads);
+    }
+
+    var btn = document.querySelector("button");
+    btn.addEventListener("click", function () {
+      var txt = document.querySelector("textarea");
+      var defaultThreads = [
+        {
+          id: 0,
+          title: txt.value,
+          author: "",
+          date: Date.now(),
+          content: "Thread content",
+          comments: [],
+        },
+      ];
+      addThread(defaultThreads);
+      txt.value = "";
+    });
+  </script>
+
+  <style>
+    body {
+      margin: 10px 60px;
+      background: rgb(255, 255, 153);
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    h1,
+    h4,
+    o1 {
+      font-family: "Merriweather", monospace;
+      margin: 0;
+    }
+
+    button {
+      font-family: "Merriweather", monospace;
+      color: black;
+      background: lightgray;
+      border-style: groove;
+      border-color: black;
+      display: block;
+      margin: 10px 0;
+      border-radius: 15px;
+    }
+    p {
+      margin: 5px 0;
+    }
+    .top-bar {
+      font-family: "Merriweather", monospace;
+    }
+    .main {
+      border-style: groove;
+      border-color: black;
+      padding: 10px 15x;
+      background: white;
+    }
+    .row {
+      padding: 5px 0;
+    }
+    .bottom {
+      display: flex;
+      color: black;
+      font-size: 12px;
+    }
+    .timestamp {
+      padding-right: 10px;
+    }
+  </style>
+
+  <style>
+    body {
+      margin: 10px 60px;
+      background: rgb(255, 255, 153);
+    }
+    h1 {
+      font-family: "Merriweather", monospace;
+      margin: 0;
+    }
+    button {
+      font-family: "Merriweather", monospace;
+      color: black;
+      background: lightgray;
+      border-style: groove;
+      border-color: black;
+      display: block;
+      margin: 10px 0;
+      border-radius: 15px;
+    }
+    textarea {
+      font-family: "Merriweather", monospace;
+      color: black;
+      background: white;
+      border-style: groove;
+      border-color: black;
+      display: block;
+      width: 80%;
+      height: 80px;
+    }
+  </style>
+</body>

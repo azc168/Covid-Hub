@@ -254,9 +254,9 @@ button {
 }
 
 .about-description h1 {
-    color: black;
-    margin-left: 1rem;
-    margin-top: 1rem;
+  color: black;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 .about-description p {
   /*max-width: 50%;
@@ -307,6 +307,11 @@ button {
   margin-bottom: -5rem;
 }
 
+/* Discussion */
+.forum-display{
+    text-align: center;
+}
+
 /* Map */
 .map-display {
   text-align: center;
@@ -314,19 +319,22 @@ button {
 }
 /*Useful Links*/
 .link-description {
-  max-width: 50%;
+  max-width: 400px;
   height: auto;
   background: white;
-  margin-left: 25%;
+  /*margin-left: 25%;*/
   border-style: solid;
   border-width: 2px;
-  border-color: grey;
-  margin-bottom: 5rem;
-  /*border-radius: 20px;*/
+  border-color: black;
+  margin-bottom: 2rem;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%);
 }
 
 .link-description p {
-  color: grey;
+  color: black;
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -335,14 +343,14 @@ button {
 }
 
 .links {
-  max-width: 450px;
+  max-width: 400px;
   height: auto;
   background: white;
   margin-top: 5rem;
   border-style: solid;
   border-width: 2px;
   border-color: grey;
-  border-radius: 20px;
+  /*border-radius: 20px;*/
   margin-bottom: 5rem;
   position: relative;
   left: 50%;
@@ -351,11 +359,18 @@ button {
   margin-top: -17rem;
 }
 
+.links h1 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: blue;
+}
 .links p {
   text-align: center;
   font-size: 1.3rem;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .links a:hover {
