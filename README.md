@@ -10,7 +10,7 @@ The Home tab explains the purpose of the website. It also consists of a chat wit
 - Html
 - Maps Java Script API by Google to create a map and add markers
 - TrackCorona API to get COVID-19 country data
-- Firebase to store data submitted in the Relief Form Page. 
+- Firebase to store data submitted in the Relief Form Page
 - JQuery to make the bot
 
 
