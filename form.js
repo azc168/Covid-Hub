@@ -1,13 +1,13 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
-  apiKey: "AIzaSyBhgld8l_2cD54PcISiMOsDAGdHurInTxA",
-  authDomain: "covid-contact-form.firebaseapp.com",
-  projectId: "covid-contact-form",
-  storageBucket: "covid-contact-form.appspot.com",
-  messagingSenderId: "568243432043",
-  appId: "1:568243432043:web:6db40e3b8570a6325b1f2e",
-  measurementId: "G-DEE35SCT0Y",
+  apiKey: "<yourApiKey>",
+  authDomain: "<yourAuthDomain>",
+  projectId: "<yourProjectId>",
+  storageBucket: "<yourStorageBucket>",
+  messagingSenderId: "<yourMessagingSenderId>",
+  appId: "<yourAppId>",
+  measurementId: "<yourMeasurementId>",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
